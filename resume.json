@@ -1,0 +1,53 @@
+{
+	"basics":{
+		"email" : "nooras@gmail.com",
+		"name" : "Nooras",
+		"phone" : "1234567891",
+		"summary" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum mollitia nesciunt accusamus corporis sunt laudantium ratione aspernatur optio, a cumque neque sapiente repudiandae, magni totam quae, quibusdam non sed asperiores.",
+		"location" :{
+		"city":"Thane",
+		"region" : "Mumbai Metropolitian region(MMR)" ,
+		"state" :"Maharashtra",
+		"country" :"India",
+		"countaryCode" :"IN"
+
+	},
+
+	"education" :[
+	{
+		"institution":"APHS",
+		"area" :"Mumbra",
+		"studyType" : "ssc",
+		"startDate": "15-06-2013",
+		"class":"First class",
+		"gpa": "80",
+		"endDate": "29-03-2014",
+	}
+	{
+		"institution":"ABCD",
+		"area" :"Mumbai",
+		"studyType" :"hsc",
+		"startDate":"15-06-2015",
+		"class":"First class",
+		"gpa":"60",
+		"endDate":"30-2-2016",
+	}
+	],
+	"Skills" :{
+		"lang":
+		{
+			"name":"XML",
+			"level":"Beginner",
+			"rating":"5",
+		}
+		{
+			"name":"XML",
+			"level":"Medium",
+			"rating":"4",
+		}
+		{
+			"name":"XML",
+			"level":"Hard",
+			"rating":"4",
+		}
+	}

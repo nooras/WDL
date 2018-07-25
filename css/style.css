@@ -47,6 +47,15 @@ main{
     margin-left: 2%;
     border: 1px solid black;
     padding:10px;
+
+}
+.contact-form h3,.social-media h3,.gallery h1{
+    text-align:center;
+}
+
+.social-media i{
+    display: inline;
+    margin-right: 10px   
 }
 .social-media>a{
     display: block;
@@ -54,4 +63,38 @@ main{
     color:black;
     margin-top: 10px;
     margin-bottom: 10px
+}
+
+.contact-form input[type="submit"]{
+    width: 100px;
+    display: block;
+    margin:0 auto;
+    background-color: #0a84ff;
+    color:#ffffff;
+    border-radius: 2px;
+    border:0; 
+}
+.contact-form input[type="submit"]:hover{
+    opacity: 0.8;
+    color: #fafafa;
+    background-color: black;
+}
+ .gallery figure img{
+    height: 200px;
+    width:200px;
+    border: 1px solid black;
+
+ }
+ .gallery{
+    text-align: center;
+ }
+.gallery figure{
+    /*float:left;*/
+    display: inline-block;
+    position: relative;
+    margin: 10px;
+    border: 1px solid black;
+    padding: 5px;
+    text-align: center;
+    font-style: italic;
 }
