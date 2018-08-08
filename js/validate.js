@@ -34,8 +34,8 @@ function checkSubject(e){
 
 function submitForm(e){
 	if(document.getElementById('user-email').value!="" && document.getElementById('subject').value!="" && document.getElementById('message').value!=""){
-		var contact=document.getElementByClassName('contact-form');
-		contact[0].innerHTML="<h3>Thank you for feedback.I'LL get to you shortly<h3>";
+		var contact=document.getElementById('contacts');
+		contact.innerHTML="<h3>Thank you for feedback.I'LL get to you shortly<h3>";
 	}
 }
 

@@ -7,17 +7,17 @@
 header > nav ul {
     list-style: none;
     background-color: #3f3f3f;
-    text-align:center; 
+    text-align:center;
 }
 header > nav ul li>a{
     text-decoration: none;
     color:#ffffff;
     font-size: 18pt;
-} 
+}
 header > nav ul li{
     display:inline-block;
     margin-left: 10px;
-    padding:10px; 
+    padding:10px;
 }
 footer{
     background-color: #3f3f3f;
@@ -33,12 +33,11 @@ main{
 }
 .pic{
     text-align: center;
-    color:#9FBE1C;
+    color:#595a5e;
 }
 .pic img{
     width:15%;
-    border:1px dotted #000000;
-    border-radius: 50%;
+    border:1px solid #000000;
 }
 .contact-form,.social-media{
     position:relative;
@@ -55,7 +54,7 @@ main{
 
 .social-media i{
     display: inline;
-    margin-right: 10px   
+    margin-right: 10px
 }
 .social-media>a{
     display: block;
@@ -72,7 +71,7 @@ main{
     background-color: #0a84ff;
     color:#ffffff;
     border-radius: 2px;
-    border:0; 
+    border:0;
 }
 .contact-form input[type="submit"]:hover{
     opacity: 0.8;
