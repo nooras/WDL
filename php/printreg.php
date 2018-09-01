@@ -30,7 +30,7 @@ if($_POST){
     if(!empty($rollno)&&!empty($name)&&!empty($gender)&&
             !empty($address)&&!empty($dob)&&!empty($sem)&&
             !empty($semail)&&!empty($dept)&&!empty($batch)){
-        
+
      ?>
         <table>
             <tr>
@@ -70,7 +70,7 @@ if($_POST){
                 <td><?php echo $batch;?></td>
             </tr>
         </table>
-<?php        
+<?php
    }
    else{
        echo "<span>Something is Missing!</span>";

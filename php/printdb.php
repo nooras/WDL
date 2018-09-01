@@ -33,7 +33,7 @@ if($_POST){
     if(!empty($rollno)&&!empty($name)&&!empty($gender)&&
             !empty($address)&&!empty($dob)&&!empty($sem)&&
             !empty($semail)&&!empty($dept)&&!empty($batch)){
-        
+
 //Inserting data in the database
         $link=mysqli_connect('localhost','root','root','AIKTC');
         if(!$link){
@@ -50,7 +50,7 @@ if($_POST){
         else{
             echo '<br><h4>Your data is successfully Inserted.</h4>';
         }
-        
+
         $query="select * from Students";
         $result=  mysqli_query($link, $query);
         mysqli_close($link);
@@ -62,13 +62,13 @@ if($_POST){
             <table>
                 <?php
             while ($row = mysqli_fetch_array($result)) {
-                
-            
-        
+
+
+
      ?>
             <tr>
                 <td>Roll No</td>
-                <td><?php echo $row['rollno'];?></td>  
+                <td><?php echo $row['rollno'];?></td>
             </tr>
             <tr>
                 <td>Name</td>
@@ -92,7 +92,7 @@ if($_POST){
             </tr>
             <tr>
                 <td>Email</td>
-                <td><?php echo $row['email'];?></td>
+                <td><?php echo $row['semail'];?></td>
             </tr>
             <tr>
                 <td>Department</td>
@@ -102,11 +102,11 @@ if($_POST){
                 <td>Batch</td>
                 <td><?php echo $row['batch'];?></td>
             </tr>
-        
-<?php        
+
+<?php
       }
       ?></table>
-  <?php      
+  <?php
     }
   }
    else{
