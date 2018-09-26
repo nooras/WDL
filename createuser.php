@@ -24,9 +24,32 @@
     </header>
 <body>
 <?php 
-        if($_POST) 
-            insertUser();
-            
+    require_once 'php/functions.php';
+        if($_POST) {
+            //insertUser();
+            $name = fix_name($_POST('name'));
+            $mobile = $_POST('mobile');
+            $email = fix_email($_POST('email'));
+            $rollno = fix_rollno($_POST('rollno'));
+            $user = $_POST('user');
+            $pass =$_POST('pass');
+            if(!empty($rollno)&&!empty($name)&&!empty($email)&&!empty($mobile)&&!empty($user)&&!empty($pass)){
+                $link=mysqli_connect('localhost','root','root','AIKTC');
+                if(!$link){
+                    echo '<br>Unable to connect to Database.'
+                    .mysqli_connect_error();
+                }
+                $query="Insert into creat_usr values('$name','$mobile','$email','$rollno','$user','$pass')";
+                 $result=mysqli_query($link,$query);
+                if(!$result){
+                    echo "<br>".mysqli_error($link);
+                }
+                else{
+                    echo '<br><h4>Your data is successfully Inserted.</h4>';
+                }
+
+            }
+        }
     
 ?>
 <div class="container">

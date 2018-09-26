@@ -1,4 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--<!DOCTYPE marksheet system "marksheet.dtd">  -->
+<!DOCTYPE marksheet[
+  <!ELEMENT marksheet (course+)>
+  <!ELEMENT course (courseid,title,TH,IA,ORPR,TW,total)>
+  <!ELEMENT courseid (#PCDATA)>
+  <!ELEMENT title (#CDATA)>
+  <!ELEMENT TH (#PCDATA)>  
+  <!ELEMENT IA (#PCDATA)>
+  <!ELEMENT ORPR (#PCDATA)>
+  <!ELEMENT TW (#PCDATA)>
+  <!ELEMENT total (#PCDATA)>
+]>
 <marksheet>
   <course>
     <courseid>CSC401</courseid>
