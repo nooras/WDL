@@ -127,7 +127,7 @@
   				<ul class="nav">
   					<li><a href="../index.htm">Home</a></li>
   					<li><a href="register.php">Create Account</a></li>
-  					<li><a href="../pronew.htm">Log out</a></li>
+  					<li><a href="../index.htm">Log out</a></li>
   					<li><a href="feedback.php">Feedback</a></li>
             <a class="na">Log in as <?=$_SESSION['username']?></a>
   				</ul>
