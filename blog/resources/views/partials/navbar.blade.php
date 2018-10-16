@@ -1,11 +1,21 @@
 <header>
 		<nav>
 			<ul>
-				<li><a href="/" title="Home">Home</a></li>
-				<li><a href="resume" title="About Me">About Me</a></li>
-				<li><a href="blog" title="Blog">Blog</a></li>
-				<li><a href="gallery" title="Photos">Gallery</a></li>
-				<li><a href="contact" title="Contact">Contact</a></li>
+				<li>
+					<a href="/" title="ABOUT ME">HOME</a>
+				</li>
+				<li>
+					<a href="resume" title= "MORE ABOUT ME">RESUME</a>
+				</li>
+				<li>
+					<a href="blog" title="MY BLOG">BLOG</a>
+				</li>
+				<li>
+					<a href="gallery" title="MY PHOTO">GALLERY</a>
+				</li>
+				<li>
+					<a href="contact" title="my no">CONTACT</a>
+				</li>
 			</ul>
 		</nav>
 </header>

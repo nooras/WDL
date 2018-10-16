@@ -60,54 +60,74 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 12);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ 12:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(1);
+module.exports = __webpack_require__(13);
 
 
 /***/ }),
-/* 1 */
+
+/***/ 13:
 /***/ (function(module, exports) {
 
-$(function () {
-	$('#rollno').on('blur', function () {
-		if (!/(\d{2}((CO)|(DCO)|(EE)|(DEE)|(EX)|(DEX)|(ME)|(DME)|(CE)|(DCE)|(CES)|(DCES))\d{2,3})/i.test(this.value)) {
-			alert("Invalid Roll Nn");
-			this.value = "";
-			$(this).focus();
-		}
-	});
+function checkRollNo(e) {
+	var element = e.target;
+	if (/[^a-zA-Z0-9]/.test(element.value)) {
+		alert("Invalid rollno. Only a-z A-Z and 0-9 characters are allowed");
+		element.value = "";
+		return false;
+	}
+	if (!/[a-zA-Z]/.test(element.value)) {
+		alert("Invalid rollno. You must also use a-z or A-Z characters");
+		element.value = "";
+		return false;
+	}
+	if (!/[0-9]/.test(element.value)) {
+		alert("Invalid rollno. You must also use 0-9 characters");
+		element.value = "";
+		return false;
+	}
+	if (element.value.length > 8 || element.value.length < 6) {
+		alert("Invalid rollno!");
+		element.value = "";
+		return false;
+	}
+	return true;
+}
 
-	$('#sname').on('keypress', function (e) {
-		// console.log(e.key);
-		if (/[^a-zA-Z ]/.test(e.key)) {
-			alert("Invalid Name.Only Alphabets and Spaces are allowed.");
-			this.value = "";
-			$(this).focus();
-			return false;
-		}
-	});
-	$('#address').on('blur', function (e) {
-		if (this.value.length < 50 && this.value.length > 150) {
-			alert("Invalid address. Length must be between 50 to 150 chararacter");
-		}
-		this.value = "";
-		$(this).focus();
-	});
+function checkName(e) {
+	var element = e.target;
+	if (/[^a-zA-Z ]/.test(element.value)) {
+		alert("Name is invalid! Only characters from a-z and A-Z are allowed.");
+		element.value = "";
+		return false;
+	}
+	return true;
+}
 
-	$('#semail').on('blur', function (e) {
-		if (/((\w*.?_?-?\d*\w+)@(\w*-?.?\d*\w+).(\w*-?))/.test(e.key)) {
-			alert("Invalid Email.");
-		}
-		this.value = "";
-		$(this).focus();
-	});
-});
+function checkAddress(e) {
+	var element = e.target;
+	if (element.value.length < 50) {
+		alert("Address is too short!");
+		element.value = "";
+		return false;
+	}
+	return true;
+}
+var rollno = document.getElementById("rollno");
+var sname = document.getElementById("sname");
+var address = document.getElementById("address");
+
+rollno.addEventListener('blur', checkRollNo, false);
+sname.addEventListener('blur', checkName, false);
+address.addEventListener('blur', checkAddress, false);
 
 /***/ })
-/******/ ]);
+
+/******/ });

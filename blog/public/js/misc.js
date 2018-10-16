@@ -60,54 +60,60 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 10);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ 10:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(1);
+module.exports = __webpack_require__(11);
 
 
 /***/ }),
-/* 1 */
+
+/***/ 11:
 /***/ (function(module, exports) {
 
 $(function () {
-	$('#rollno').on('blur', function () {
-		if (!/(\d{2}((CO)|(DCO)|(EE)|(DEE)|(EX)|(DEX)|(ME)|(DME)|(CE)|(DCE)|(CES)|(DCES))\d{2,3})/i.test(this.value)) {
-			alert("Invalid Roll Nn");
-			this.value = "";
-			$(this).focus();
-		}
-	});
+  $("#cpass").on('change', function (e) {
+    e.preventDefault();
+    var cpass = $(this).val();
+    var pass = $("#pass").val();
+    if (pass != cpass) {
+      $(this).val("");
+      $("#cpasser").html("<span class= 'alert alert-danger'>Password do not match</span>");
+    } else {
+      $("#cpasserr").html("<span class='alert alert-success'> Password Matches</span>");
+    }
+  });
+  $("#pass").on('change', function (e) {
+    e.preventDefault();
+    $("#cpass").val("");
+  });
 
-	$('#sname').on('keypress', function (e) {
-		// console.log(e.key);
-		if (/[^a-zA-Z ]/.test(e.key)) {
-			alert("Invalid Name.Only Alphabets and Spaces are allowed.");
-			this.value = "";
-			$(this).focus();
-			return false;
-		}
-	});
-	$('#address').on('blur', function (e) {
-		if (this.value.length < 50 && this.value.length > 150) {
-			alert("Invalid address. Length must be between 50 to 150 chararacter");
-		}
-		this.value = "";
-		$(this).focus();
-	});
+  $("#user").on('keypress', function (e) {
+    //e.preventdefault();
+    var user = $(this).val();
+    var dataString = 'user=' + user;
 
-	$('#semail').on('blur', function (e) {
-		if (/((\w*.?_?-?\d*\w+)@(\w*-?.?\d*\w+).(\w*-?))/.test(e.key)) {
-			alert("Invalid Email.");
-		}
-		this.value = "";
-		$(this).focus();
-	});
+    $.ajax({
+      type: 'POST',
+      url: 'checkuser.php',
+      data: dataString,
+      cache: false,
+      success: function success(available) {
+        if (available == "false") {
+          $('#usererr').html('<span class="alert alert-danger">Username not available</ span>');
+        } else {
+          $('#usererr').html('<span class="alert alert-success">Username available</span>');
+        }
+      }
+    });
+  });
 });
 
 /***/ })
-/******/ ]);
+
+/******/ });

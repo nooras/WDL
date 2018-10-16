@@ -60,54 +60,40 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 8);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ 8:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(1);
+module.exports = __webpack_require__(9);
 
 
 /***/ }),
-/* 1 */
+
+/***/ 9:
 /***/ (function(module, exports) {
 
-$(function () {
-	$('#rollno').on('blur', function () {
-		if (!/(\d{2}((CO)|(DCO)|(EE)|(DEE)|(EX)|(DEX)|(ME)|(DME)|(CE)|(DCE)|(CES)|(DCES))\d{2,3})/i.test(this.value)) {
-			alert("Invalid Roll Nn");
-			this.value = "";
-			$(this).focus();
-		}
+$(document).ready(function () {
+	$('#one').on('click', function () {
+		$(this).html('<b>You Just Clicked Me!</b>');
 	});
-
-	$('#sname').on('keypress', function (e) {
-		// console.log(e.key);
-		if (/[^a-zA-Z ]/.test(e.key)) {
-			alert("Invalid Name.Only Alphabets and Spaces are allowed.");
-			this.value = "";
-			$(this).focus();
-			return false;
-		}
+	$('#two').on('click', function () {
+		$('#four').slideToggle();
 	});
-	$('#address').on('blur', function (e) {
-		if (this.value.length < 50 && this.value.length > 150) {
-			alert("Invalid address. Length must be between 50 to 150 chararacter");
-		}
-		this.value = "";
-		$(this).focus();
+	$('#three').on('click', function () {
+		$(this).hide();
 	});
-
-	$('#semail').on('blur', function (e) {
-		if (/((\w*.?_?-?\d*\w+)@(\w*-?.?\d*\w+).(\w*-?))/.test(e.key)) {
-			alert("Invalid Email.");
-		}
-		this.value = "";
-		$(this).focus();
+	$('#f1').on('click', function () {
+		$(this).fadeOut(1000).fadeIn(500);
+	});
+	$('#f2').on('click', function () {
+		$(this).fadeTo(1000, 0.5);
 	});
 });
 
 /***/ })
-/******/ ]);
+
+/******/ });

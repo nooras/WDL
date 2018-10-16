@@ -2,14 +2,16 @@
 @section('title','Home Page')
 
 @section('navbar')
-	@include('partials.navbar')
+    @include('partials.navbar')
 @endsection
-
 @section('content')
 	<main>
-		<div class="pic">
-			<figure><img src="img/nf.jpg"></figure>
-		  <h1>Nooras Fatima</h1>
+		<div class="myphoto" >	
+		<figure >
+			<img src="{{asset('img/index2.jpg')}}"/>
+		</figure>
+
+	    <h1>Nooras Fatima</h1>
 		</div>
 		<div>
 			<p class="d">
@@ -30,9 +32,8 @@
 			<a href="blog.htm">Blog</a>
 		</div>
 	</main>
+
 @endsection
-
-
 @section('footer')
-	@include('partials.footer')
+  @include('partials.footer')
 @endsection

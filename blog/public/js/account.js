@@ -60,54 +60,57 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ([
-/* 0 */
+/* 0 */,
+/* 1 */,
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(1);
+module.exports = __webpack_require__(3);
 
 
 /***/ }),
-/* 1 */
+/* 3 */
 /***/ (function(module, exports) {
 
-$(function () {
-	$('#rollno').on('blur', function () {
-		if (!/(\d{2}((CO)|(DCO)|(EE)|(DEE)|(EX)|(DEX)|(ME)|(DME)|(CE)|(DCE)|(CES)|(DCES))\d{2,3})/i.test(this.value)) {
-			alert("Invalid Roll Nn");
-			this.value = "";
-			$(this).focus();
+var username_alloted = ['salman', 'zeeshan', 'shahrukh'];
+function checkUserName(e) {
+	var element = e.target;
+	var message = document.getElementById('usererr');
+	var flag = 0;
+	for (var i = 0; i < username_alloted.length; i++) {
+		if (username_alloted[i] == element.value) {
+			message.textContent = "Username Unavailable";
+			flag = 1;
+			break;
 		}
-	});
+	}
 
-	$('#sname').on('keypress', function (e) {
-		// console.log(e.key);
-		if (/[^a-zA-Z ]/.test(e.key)) {
-			alert("Invalid Name.Only Alphabets and Spaces are allowed.");
-			this.value = "";
-			$(this).focus();
-			return false;
-		}
-	});
-	$('#address').on('blur', function (e) {
-		if (this.value.length < 50 && this.value.length > 150) {
-			alert("Invalid address. Length must be between 50 to 150 chararacter");
-		}
-		this.value = "";
-		$(this).focus();
-	});
+	if (flag == 0 && element.value != "") {
+		message.textContent = "Username Available!";
+	}
+}
+function setActive(e) {
+	var element = e.target;
+	var previousElement = document.getElementsByClassName('active');
+	if (previousElement.length == 1) {
+		previousElement[0].setAttribute('class', 'form-control');
+	}
+	element.setAttribute('class', 'form-control active');
+}
 
-	$('#semail').on('blur', function (e) {
-		if (/((\w*.?_?-?\d*\w+)@(\w*-?.?\d*\w+).(\w*-?))/.test(e.key)) {
-			alert("Invalid Email.");
-		}
-		this.value = "";
-		$(this).focus();
-	});
-});
+var elements = document.getElementsByTagName('input');
+for (var i = 0; i < elements.length; i++) {
+	if (elements[i].type != "submit" && elements[i].type != "reset") {
+		elements[i].addEventListener('focus', setActive, false);
+	}
+}
+
+var username = document.getElementById("user");
+username.addEventListener('blur', checkUserName, false);
 
 /***/ })
 /******/ ]);
