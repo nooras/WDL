@@ -1,49 +1,52 @@
-function checkEmail(e){
+function checkRollNo(e){
 	var element=e.target;
-	if(/[^a-zA-Z0-9@._]/.test(element.value)){
-		alert("Email is invalid!Only character a-z A-z 0-9 @ . _ are allowed.");
+	if(/[^a-zA-Z0-9]/.test(element.value)){
+		alert("Invalid rollno. Only a-z A-Z and 0-9 characters are allowed");
 		element.value="";
 		return false;
 	}
 	if(!/[a-zA-Z]/.test(element.value)){
-		alert("Email is invalid!Character a-z A-z are must.");
+		alert("Invalid rollno. You must also use a-z or A-Z characters");
 		element.value="";
-		return false;
+		return false;	
 	}
-	if(!/[@]/.test(element.value)){
-		alert("Email is invalid!You are missing @.");
+	if(!/[0-9]/.test(element.value)){
+		alert("Invalid rollno. You must also use 0-9 characters");
 		element.value="";
-		return false;
+		return false;	
 	}
-	if(!/[.]/.test(element.value)){
-		alert("Email is invalid!. domain name is missing.");
+	if(element.value.length>8 || element.value.length<6){
+		alert("Invalid rollno!");
+		element.value="";
+		return false;	
+	}
+	return true;
+}
+
+function checkName(e){
+	var element=e.target;
+	if(/[^a-zA-Z ]/.test(element.value)){
+		alert("Name is invalid! Only characters from a-z and A-Z are allowed.");
 		element.value="";
 		return false;
 	}
 	return true;
 }
 
-function checkSubject(e){
+function checkAddress(e){
 	var element=e.target;
-	if(/[^a-zA-Z]/.test(element.value)){
-		alert("Invalid Subject.Use only a-z or A-z");
+	if(element.value.length<50){
+		alert("Address is too short!");
 		element.value="";
 		return false;
 	}
+	return true;
 }
+var rollno=document.getElementById("rollno");
+var sname=document.getElementById("sname");
+var address=document.getElementById("address");
 
-function submitForm(e){
-	if(document.getElementById('user-email').value!="" && document.getElementById('subject').value!="" && document.getElementById('message').value!=""){
-		var contact=document.getElementById('contacts');
-		contact.innerHTML="<h3>Thank you for feedback.I'LL get to you shortly<h3>";
-	}
-}
+rollno.addEventListener('blur',checkRollNo,false);
+sname.addEventListener('blur',checkName,false);
+address.addEventListener('blur',checkAddress,false);
 
-var email=document.getElementById('user-email');
-email.addEventListener('blur',checkEmail,false);
-
-var subject=document.getElementById('subject');
-subject.addEventListener('blur',checkSubject,false);
-
-var submit=document.getElementById('submit-btn');
-submit.addEventListener('click',submitForm,false)

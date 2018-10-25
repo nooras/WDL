@@ -1,4 +1,10 @@
 {
+    "/js/jquery.min.js": "/js/jquery.min.js",
+    "/js/validate.js": "/js/validate.js",
+    "/js/misc.js": "/js/misc.js",
+    "/js/jqueryexample.js": "/js/jqueryexample.js",
     "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css"
+    "/js/angular.min.js": "/js/angular.min.js",
+    "/js/account.js": "/js/account.js",
+    "/css/style.css": "/css/style.css"
 }

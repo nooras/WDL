@@ -1,12 +1,12 @@
 @extends('template')
-@section('title','My blog')
+@section('title','My Blog')
 
 @section('navbar')
     @include('partials.navbar')
 @endsection
 
 @section('content')
-   <article class="container panel panel-default">
+	<article class="container panel panel-default">
 		<div class="panel-heading">Hello World!</div>
 		<header class="panel-body">
 			<div>
@@ -25,8 +25,9 @@
 
 	
 	</article>
+
 @endsection
 
 @section('footer')
-	@include('partials.footer')
-@endsection	
+  @include('partial.footer')
+@endsection

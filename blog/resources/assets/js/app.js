@@ -1,35 +1,41 @@
 $(function(){
 	$('#rollno').on('blur',function(){
-		if(!/(\d{2}((CO)|(DCO)|(EE)|(DEE)|(EX)|(DEX)|(ME)|(DME)|(CE)|(DCE)|(DCES))\d{2,3})/i.test(this.value)){
-			alert("Invalid Roll No.");
+		if(!/(\d{2}((CO)|(DCO)|(EE)|(DEE)|(EX)|(DEX)|(ME)|(DME)|(CE)|(DCE)|(CES)|(DCES))\d{2,3})/i.test(this.value)){
+			alert("Invalid Roll Nn");
 			this.value="";
 			$(this).focus();
+
 		}
 	});
+
 	$('#sname').on('keypress',function(e){
+		// console.log(e.key);
 		if(/[^a-zA-Z ]/.test(e.key)){
-			//console.log(e.key)
-		alert("Name is invalid!Only alphabet and spaces is allowed.");
-		this.value="";
-		$(this).focus();
-		return false;
-		}
-	})
-	$('#address').on('blur',function(){
-		//if(/[^a-zA-Z0-9, ]/.test(e.key)){
-			//console.log(e.key)
-		if(this.value.length>=50 | this.value.length<10){
-			alert("Addres");
+			alert("Invalid Name.Only Alphabets and Spaces are allowed.");
 			this.value="";
 			$(this).focus();
+			return false;
 		}
-	})
-	$('#semail').on('blur',function(){
-		if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.value))
-		 {
-			 return true;
-		 }
-			 alert("You have entered an invalid email address!");
-			 return false;
-	})
+
+	});
+	$('#address').on('blur',function(e){
+		if(this.value.length<50 && this.value.length>150){
+			alert("Invalid address. Length must be between 50 to 150 chararacter");
+
+		}
+		this.value="";
+		$(this).focus();
+
+	});
+
+	$('#semail').on('blur',function(e){
+		if(/((\w*.?_?-?\d*\w+)@(\w*-?.?\d*\w+).(\w*-?))/.test(e.key)){
+			alert("Invalid Email.");
+		}
+		this.value="";
+		$(this).focus();
+
+
+	});
+
 });
