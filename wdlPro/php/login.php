@@ -4,15 +4,13 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>My Blog</title>
-	         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
-			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" >
-         <style type="text/css">
-
+	<title>Login</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" >
+   <style type="text/css">
 				 .body_main{
  			    background: #000f40;
  			    color:#fff;
- 			    /*position:relative;*/
  			   margin:0;
 				 font-family: cursive;
  			  }
@@ -80,96 +78,53 @@
 					background-color:linear-gradient(rgba(0,0,0,.2) 40px,rgba(0,0,0,.15));
 					color: #155079;
  			  }
-
-.signup{
-	padding: 6px 120px;
-}
-
-/*.login{
-		padding: 6px 120px;
-
-}*/
-.row{
-	width: 500px;
-}
-.btn{
-	padding: 8px 43px;
-	border-radius: 19px;
-}
-
-.btn-info1{
-	background-color: #6679ba;
-	margin: 20px 0;
-	border: 0;
-	transition: all 0.7s;
-	border: 1px solid #155079;
-}
-  /*.ques{
-    height: 400px;
-    width: 300px;
-    background-image: url("img/qm.png");
-    color: #fff;
-    background-position: 50%;
-    background-size: auto 350px;
-    background-repeat: no-repeat;
-    padding: 45px;
-  }*/
-
-.btn-info1:hover{
-	background-color: #fff;
-	color: #155079;
-}
-.g{
-	padding: 70px 0;
-}
-.h{
-	margin: 15px 0;
-	width:300px;
-}
-.block{
-	background: linear-gradient(rgba(0,0,0,.2) 40px,rgba(0,0,0,.15));
-	min-width: 500;
-	min-height: 400;
-	left: 300px;
-}
-.foot{
-	width: 1000px;
-	text-align: center;
-	position: absolute;
-	left: 130px;
-		font-size: 20px;
-		font-weight: 600;
-		letter-spacing: 5px;
-		margin-top: 50px;
-}
-
+					.signup{
+						padding: 6px 120px;
+					}
+					.row{
+						width: 500px;
+					}
+					.btn{
+						padding: 8px 43px;
+						border-radius: 19px;
+					}
+					.btn-info1{
+						background-color: #6679ba;
+						margin: 20px 0;
+						border: 0;
+						transition: all 0.7s;
+						border: 1px solid #155079;
+					}
+				.btn-info1:hover{
+					background-color: #fff;
+					color: #155079;
+				}
+				.g{
+					padding: 70px 0;
+				}
+				.h{
+					margin: 15px 0;
+					width:300px;
+				}
+				.block{
+					background: linear-gradient(rgba(0,0,0,.2) 40px,rgba(0,0,0,.15));
+					min-width: 500;
+					min-height: 400;
+					left: 300px;
+				}
+				.foot{
+					width: 1000px;
+					text-align: center;
+					position: absolute;
+					left: 130px;
+						font-size: 20px;
+						font-weight: 600;
+						letter-spacing: 5px;
+						margin-top: 50px;
+				}
 		 </style>
-
 </head>
 <body class="body_main">
-		<?php
-  	session_start();
-    //$db=mysqli_connect("localhost","root","root","Quiz") or die(mysqli_error());
-    if(isset($_POST['login_btn'])){
-		    	$u=$_SESSION['username'] = $_POST['username'];
-					$p=$_SESSION['password'] = $_POST['pass'];
-					$db=mysqli_connect("localhost","root","root","Quiz");
-					$check= mysqli_query($db,"select * from Users where u_pass='$p' and u_name='$u'");
-					$r=mysqli_fetch_array($check);
-					$_SESSION['id']=$r['u_id'];
-					if(!empty(mysqli_num_rows($check)))
-					{
-						echo '<span style="font-size:1.30em; color:#155079; font-weight:bold;">you are logged in</span>';
-							header('location:type.php');
-					}
-					else
-					{
-						echo '<span style="font-size:1.30em; color:red; font-weight:bold;">SORRY!!! you are not registered member</span>';
-						header('location:register.php');
-					}
-		     	 mysqli_close($db);
-		}
-?>
 <div class="star"></div>
 <div>
 	<header id="main_head">
@@ -184,6 +139,27 @@
 		</div>
 	</header>
 </div>
+<?php
+session_start();
+if(isset($_POST['login_btn'])){
+			$u=$_SESSION['username'] = $_POST['username'];
+			$p=$_SESSION['password'] = $_POST['pass'];
+			$db=mysqli_connect("localhost","root","root","Quiz");
+			$check= mysqli_query($db,"select * from Users where u_pass='$p' and u_name='$u'");
+			$r=mysqli_fetch_array($check);
+			$_SESSION['id']=$r['u_id'];
+			if(!empty(mysqli_num_rows($check)))
+			{
+				echo '<span style="font-size:1.30em; color:#155079; font-weight:bold;">you are logged in</span>';
+					header('location:type.php');
+			}
+			else
+			{
+				echo '<span style="font-size:1.30em; color:#fff; font-weight:bold;text-align:center;display:block;padding:20px">SORRY!!! you are not registered member.</span>';
+			}
+			 mysqli_close($db);
+}
+?>
 <div class="container">
 		<div class="col-md-6 text-center">
 			<div class="g">
@@ -200,14 +176,10 @@
 							<input type="password" class="form-control" name="pass" placeholder="password" required>
 						</div>
 					<button  type="submit" class="btn btn-info1" name="login_btn"><b>Log In</b></button>
-
 				</form>
 			</div>
-
 			</div>
 		</div>
-
-
 </div>
 </div>
 <div class="foot">
